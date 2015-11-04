@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en" ng-app="phonecatApp">
 <head>
   <meta charset="utf-8">
@@ -22,7 +22,7 @@
       <!--Body content-->
 
       <ul class="phones">
-        <li ng-repeat="phone in phones | filter:query">
+        <li tag="phones" ng-repeat="phone in phones | filter:query">
           {{phone.name}}
           <p>{{phone.snippet}}</p>
         </li>
