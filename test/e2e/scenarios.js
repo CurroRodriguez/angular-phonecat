@@ -15,14 +15,14 @@ describe('PhoneCat App', function() {
       var phoneList = element.all(by.repeater('phone in phones'));
       var query = element(by.model('query'));
       
-      expect(phoneList.count()).toBe(3);
+      expect(phoneList.count()).toBe(20);
       
       query.sendKeys('nexus');
       expect(phoneList.count()).toBe(1);
       
       query.clear();
       query.sendKeys('motorola');
-      expect(phoneList.count()).toBe(2);
+      expect(phoneList.count()).toBe(8);
     });
     
     
@@ -52,6 +52,17 @@ describe('PhoneCat App', function() {
       
       
     });
+    
+    
+    it('should render phone specific links', function() {
+      var query = element(by.model('query'));
+      query.sendKeys('nexus');
+      element.all(by.css('.phones li a')).first().click();
+      browser.getLocationAbsUrl().then(function(url) {
+        expect(url).toBe('/phones/nexus-s');
+      });
+    });
+
     
   });
 });
